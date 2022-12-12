@@ -23,9 +23,4 @@ password: 45RFgh##@$
 - Step 4: login using REST client i.e `./requests/actions.rest`
 > Note: you need to update the value of` @token` as explained in the lecture
 
-<<<<<<< HEAD
 - asdf
-=======
-
-Testing pushing to git.
->>>>>>> fdb30e883def114e07bc50226b3a94f44147edd3
