@@ -1,4 +1,4 @@
-import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+import { useRoomsContext as useRoomsContext } from '../hooks/useRoomsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 // date fns
@@ -6,8 +6,8 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const API_URL=process.env.REACT_APP_API_URL;
 
-const WorkoutDetails = ({ workout }) => {
-  const { dispatch } = useWorkoutsContext()
+const RoomDetails = ({ room }) => {
+  const { dispatch } = useRoomsContext()
   const { user } = useAuthContext()
 
   const handleClick = async () => {
@@ -15,7 +15,7 @@ const WorkoutDetails = ({ workout }) => {
       return
     }
 
-    const response = await fetch(API_URL  + '/workouts/' + workout._id, {
+    const response = await fetch(API_URL  + '/rooms/' + room._id, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`
@@ -24,19 +24,19 @@ const WorkoutDetails = ({ workout }) => {
     const json = await response.json()
 
     if (response.ok) {
-      dispatch({type: 'DELETE_WORKOUT', payload: json})
+      dispatch({type: 'DELETE_ROOM', payload: json})
     }
   }
 
   return (
-    <div className="workout-details">
-      <h4>{workout.title}</h4>
-      <p><strong>Load (kg): </strong>{workout.load}</p>
-      <p><strong>Reps: </strong>{workout.reps}</p>
-      <p>{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}</p>
+    <div className="room-details">
+      <h4>{room.title}</h4>
+      <p><strong>Load (kg): </strong>{room.load}</p>
+      <p><strong>Reps: </strong>{room.reps}</p>
+      <p>{formatDistanceToNow(new Date(room.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
     </div>
   )
 }
 
-export default WorkoutDetails
+export default RoomDetails
