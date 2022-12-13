@@ -22,6 +22,7 @@ const Navbar = () => {
         <Link to="/">
           <h1>IoT-ctrl-panel</h1>
         </Link>
+        <button onClick={handleTheme}>Toggle Theme</button>
         <nav>
           {user && (
             <div>
