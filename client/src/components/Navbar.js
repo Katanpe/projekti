@@ -17,30 +17,27 @@ const Navbar = () => {
   }
 
   return (
-
-      <header>
-        <div className="container">
-          <Link to="/">
-            <h1>Workout Buddy</h1>
-          </Link>
-          <button onClick={handleTheme}>Toggle Theme</button>
-          <nav>
-            {user && (
-              <div>
-                <span>{user.email}</span>
-                <button onClick={handleClick}>Log out</button>
-              </div>
-            )}
-            {!user && (
-              <div>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
-              </div>
-            )}
-          </nav>
-        </div>
-      </header>
-
+    <header>
+      <div className="container">
+        <Link to="/">
+          <h1>IoT-ctrl-panel</h1>
+        </Link>
+        <nav>
+          {user && (
+            <div>
+              <span>{user.email}</span>
+              <button onClick={handleClick}>Log out</button>
+            </div>
+          )}
+          {!user && (
+            <div>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+            </div>
+          )}
+        </nav>
+      </div>
+    </header>
   )
 }
 

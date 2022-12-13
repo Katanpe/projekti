@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
+import { useRoomsContext } from "../hooks/useRoomsContext"
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const API_URL=process.env.REACT_APP_API_URL;
 
-const WorkoutForm = () => {
-  const { dispatch } = useWorkoutsContext()
+const RoomForm = () => {
+  const { dispatch } = useRoomsContext()
   const { user } = useAuthContext()
 
   const [title, setTitle] = useState('')
@@ -22,11 +22,11 @@ const WorkoutForm = () => {
       return
     }
 
-    const workout = {title, load, reps}
+    const room = {title, load, reps}
 
-    const response = await fetch(API_URL + '/workouts/', {
+    const response = await fetch(API_URL + '/rooms/', {
       method: 'POST',
-      body: JSON.stringify(workout),
+      body: JSON.stringify(room),
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -44,15 +44,15 @@ const WorkoutForm = () => {
       setReps('')
       setError(null)
       setEmptyFields([])
-      dispatch({type: 'CREATE_WORKOUT', payload: json})
+      dispatch({type: 'CREATE_ROOM', payload: json})
     }
   }
 
   return (
     <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a New Workout</h3>
+      <h3>Add a New Room</h3>
 
-      <label>Excersize Title:</label>
+      <label>Room Title:</label>
       <input 
         type="text"
         onChange={(e) => setTitle(e.target.value)}
@@ -76,10 +76,10 @@ const WorkoutForm = () => {
         className={emptyFields.includes('reps') ? 'error' : ''}
       />
 
-      <button>Add Workout</button>
+      <button>Add Room</button>
       {error && <div className="error">{error}</div>}
     </form>
   )
 }
 
-export default WorkoutForm
+export default RoomForm
