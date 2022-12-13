@@ -55,7 +55,7 @@ const RoomDetails = ({ room }) => {
           checked={lightSwitch}
           onChange={onLightSwitctChange}
         />
-        <label htmlFor="lightSwitch">Turn lights on/off</label>
+        <label htmlFor="lightSwitch"><p><b>Turn lights on/off</b></p></label>
       </div>
       <div>
         <img src={bulb} alt="lightbulb"/>

@@ -46,7 +46,7 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
-.workout-details {
+.room-details {
   background: #E5E7E6;
   border-radius: 4px;
   margin: 20px auto;
@@ -59,17 +59,17 @@ header a {
   color: var(--primary);
 }
 
-.workout-details h4 {
+.room-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: var(--primary);
 }
-.workout-details p {
+.room-details p {
   margin: 0;
   font-size: 0.9em;
   color: #555;
 }
-.workout-details span {
+.room-details span {
   position: absolute;
   top: 20px;
   right: 20px;
