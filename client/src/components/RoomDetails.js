@@ -43,7 +43,6 @@ const RoomDetails = ({ room }) => {
     }
   };
 
-
   const RenderLights = (props) => {
     const arrayLights = []
     for (let i=0; i<room.load; i++) {
@@ -53,16 +52,14 @@ const RoomDetails = ({ room }) => {
           onChange={onLightSwitchChange}
         />)
     }
+
     return(
       <>
         {arrayLights.map(light => 
           <>
             <div>
               {light}
-              <label htmlFor={light.id}>Turn lights on/off</label>
-              <p>{light.id}</p>
-            </div>
-            <div>
+              <label className="instructions" htmlFor={light.id}>Turn lights on/off</label>
               <img src={bulb} alt="lightbulb"/>
             </div>
           </>
@@ -74,11 +71,13 @@ const RoomDetails = ({ room }) => {
   return (
     <div className="room-details">
       <h4>{room.title}</h4>
-      <p><strong>Load (kg): </strong>{room.load}</p>
+      <p><strong>Lamppuja: </strong>{room.load}</p>
       <p><strong>Reps: </strong>{room.reps}</p>
       <p>{formatDistanceToNow(new Date(room.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
-      {RenderLights(room)}
+      <div className="lamps">
+        {RenderLights(room)}
+      </div>
     </div>
   )
 }

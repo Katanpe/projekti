@@ -53,6 +53,7 @@ header a {
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  max-width: 824.6px;
 }
 
 .create h3 {
@@ -78,6 +79,19 @@ header a {
   padding: 6px;
   border-radius: 50%;
   color: #333;
+}
+.room-details .lamps {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  margin:10px
+}
+
+.instructions {
+  color: #333;
+  text-align: center
 }
 
 /* new workout form */
@@ -113,3 +127,4 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
+
