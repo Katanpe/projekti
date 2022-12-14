@@ -1,4 +1,4 @@
-import { useRoomsContext as useRoomsContext } from '../hooks/useRoomsContext'
+import { useRoomsContext} from '../hooks/useRoomsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import React, { useState } from 'react';
 import ToggleSwitch from "../components/ToggleSwitch";
@@ -13,6 +13,7 @@ const RoomDetails = ({ room }) => {
   const { user } = useAuthContext()
   let [lightSwitch, setLightSwitch] = useState(false);
   let [bulb, setBulb] = useState("https://media.geeksforgeeks.org/wp-content/uploads/OFFbulb.jpg")
+  //const [lights, setLights] = useState([])
 
 
   const handleClick = async () => {
@@ -33,7 +34,7 @@ const RoomDetails = ({ room }) => {
     }
   }
 
-  const onLightSwitctChange = (checked) => {
+  const onLightSwitchChange = (checked) => {
     setLightSwitch(checked);
     if (!checked) {
       setBulb("https://media.geeksforgeeks.org/wp-content/uploads/OFFbulb.jpg")
@@ -42,6 +43,32 @@ const RoomDetails = ({ room }) => {
     }
   };
 
+  const RenderLights = (props) => {
+    const arrayLights = []
+    for (let i=0; i<room.load; i++) {
+        arrayLights.push(<ToggleSwitch
+          id={i.toString()}
+          checked={lightSwitch}
+          onChange={onLightSwitchChange}
+        />)
+    }
+    return(
+      <>
+        {arrayLights.map(light => 
+          <>
+            <div>
+            {light}
+            <label htmlFor={light.id}>Turn lights on/off</label>
+            </div>
+            <div>
+              <img src={bulb} alt="lightbulb"/>
+            </div>
+          </>
+        )}
+      </>
+    )
+  }
+
   return (
     <div className="room-details">
       <h4>{room.title}</h4>
@@ -49,18 +76,7 @@ const RoomDetails = ({ room }) => {
       <p><strong>Reps: </strong>{room.reps}</p>
       <p>{formatDistanceToNow(new Date(room.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
-      <div>
-        <ToggleSwitch
-          id="lightSwitch"
-          checked={lightSwitch}
-          onChange={onLightSwitctChange}
-        />
-        <label htmlFor="lightSwitch"><p><b>Turn lights on/off</b></p></label>
-      </div>
-      <div>
-        <img src={bulb} alt="lightbulb"/>
-        <p>LightSwitch: {String(lightSwitch)}</p>
-      </div>
+      {RenderLights(room)}
     </div>
   )
 }
@@ -68,3 +84,18 @@ const RoomDetails = ({ room }) => {
 
 
 export default RoomDetails
+
+/*
+  <div>
+    <ToggleSwitch
+      id="lightSwitch"
+      checked={lightSwitch}
+      onChange={onLightSwitchChange}
+    />
+    <label htmlFor="lightSwitch">Turn lights on/off</label>
+  </div>
+  <div>
+    <img src={bulb} alt="lightbulb"/>
+    <p>LightSwitch: {String(lightSwitch)}</p>
+  </div>
+*/ 
