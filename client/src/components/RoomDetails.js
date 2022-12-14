@@ -43,6 +43,7 @@ const RoomDetails = ({ room }) => {
     }
   };
 
+
   const RenderLights = (props) => {
     const arrayLights = []
     for (let i=0; i<room.load; i++) {
@@ -57,8 +58,9 @@ const RoomDetails = ({ room }) => {
         {arrayLights.map(light => 
           <>
             <div>
-            {light}
-            <label htmlFor={light.id}>Turn lights on/off</label>
+              {light}
+              <label htmlFor={light.id}>Turn lights on/off</label>
+              <p>{light.id}</p>
             </div>
             <div>
               <img src={bulb} alt="lightbulb"/>
