@@ -55,6 +55,7 @@ header a {
 }
 .room-details {
   background: #E5E7E6;
+  border-radius: 4px;
   margin-right: 20px;
   padding: 20px;
   position: relative;
