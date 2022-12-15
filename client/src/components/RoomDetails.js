@@ -74,6 +74,12 @@ const RoomDetails = ({ room }) => {
       <p><strong>Lamppuja: </strong>{room.load}</p>
       <p>{formatDistanceToNow(new Date(room.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+      <p>Turn all lights on/off: </p>
+      <ToggleSwitch
+          id="lightSwitchGlobal"
+          checked={lightSwitch}
+          onChange={onLightSwitchChange}
+        />
       <div className="lamps">
         {RenderLights(room)}
       </div>
@@ -84,18 +90,3 @@ const RoomDetails = ({ room }) => {
 
 
 export default RoomDetails
-
-/*
-  <div>
-    <ToggleSwitch
-      id="lightSwitch"
-      checked={lightSwitch}
-      onChange={onLightSwitchChange}
-    />
-    <label htmlFor="lightSwitch">Turn lights on/off</label>
-  </div>
-  <div>
-    <img src={bulb} alt="lightbulb"/>
-    <p>LightSwitch: {String(lightSwitch)}</p>
-  </div>
-*/ 
