@@ -71,7 +71,7 @@ const RoomDetails = ({ room }) => {
   return (
     <div className="room-details">
       <h4>{room.title}</h4>
-      <p><strong>Lamppuja: </strong>{room.load}</p>
+      <p><strong>Number of lamps: </strong>{room.load}</p>
       <p>{formatDistanceToNow(new Date(room.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
       <div className="lamps">
