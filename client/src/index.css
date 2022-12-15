@@ -31,33 +31,34 @@ header .container {
   justify-content: space-between;
 }
 header a {
+  margin-left: 20px;
+  margin-right: 20px;
   color: var(--primary);
   text-decoration: none;
 }
-.pages{
+.pages {
   max-width: 1400px;
   padding: 20px;
-  margin: 0 auto;
+  margin: 20px;
+  
 }
+.button {
+  margin-right:20px;
+  margin-left:20px;
+}
+
 
 /* homepage */
 .home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 .room-details {
   background: #E5E7E6;
-  border-radius: 4px;
-  margin: 20px auto;
+  margin-right: 20px;
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-  max-width: 824.6px;
-}
-
-.create h3 {
-  color: var(--primary);
 }
 
 .room-details h4 {
@@ -94,7 +95,19 @@ img {
   text-align: center
 }
 
-/* new workout form */
+/* new room form */
+.create {
+  background: #E5E7E6;
+  border-radius: 4px;
+  margin-left: 20px;
+  padding: 20px;
+  position: relative;
+  min-width: 200px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.create h3 {
+  color: var(--primary);
+}
 label, input {
   display: block;
 }
@@ -126,5 +139,16 @@ div.error {
 }
 input.error {
   border: 1px solid var(--error);
+}
+
+/* login screen */
+.login, .signup {
+  background: #E5E7E6;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.dark-text {
+  color: #333;
 }
 

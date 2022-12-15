@@ -50,9 +50,9 @@ const RoomForm = () => {
 
   return (
     <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a New Room</h3>
+      <h3 className="dark-text">Add a New Room</h3>
 
-      <label>Room Title:</label>
+      <label className="dark-text">Room Title:</label>
       <input 
         type="text"
         onChange={(e) => setTitle(e.target.value)}
@@ -60,7 +60,7 @@ const RoomForm = () => {
         className={emptyFields.includes('title') ? 'error' : ''}
       />
 
-      <label>Load (in kg):</label>
+      <label className="dark-text">Number of lamps:</label>
       <input 
         type="number"
         onChange={(e) => setLoad(e.target.value)}

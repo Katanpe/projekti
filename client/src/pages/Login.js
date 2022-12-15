@@ -14,15 +14,15 @@ const Login = () => {
 
   return (
       <form className="login" onSubmit={handleSubmit}>
-        <h3>Log In</h3>
+        <h3 className="dark-text">Log In</h3>
         
-        <label>Email address:</label>
+        <label className="dark-text">Email address:</label>
         <input 
           type="email" 
           onChange={(e) => setEmail(e.target.value)} 
           value={email} 
         />
-        <label>Password:</label>
+        <label className="dark-text">Password:</label>
         <input 
           type="password" 
           onChange={(e) => setPassword(e.target.value)} 
