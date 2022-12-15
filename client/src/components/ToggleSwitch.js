@@ -6,16 +6,16 @@ const ToggleSwitch = ({
     onChange,
 }) => {
 
-    return (
-        <div className={"toggle-switch"}>
-        <input
-          type="checkbox"
-          id={id}
-          checked={checked}
-          onChange={(e) => onChange(e.target.checked)}
-        />
-      </div>
-    );
+  return (
+    <div className={"toggle-switch"}>
+      <input
+        type="checkbox"
+        id={id}
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+      />
+    </div>
+  );
 }
   
 export default ToggleSwitch;
