@@ -30,7 +30,7 @@ const getRoom = async (req, res) => {
 
 // create new room
 const createRoom = async (req, res) => {
-  const {title, load, reps} = req.body
+  const {title, load} = req.body
 
   let emptyFields = []
 
@@ -40,9 +40,6 @@ const createRoom = async (req, res) => {
   if(!load) {
     emptyFields.push('load')
   }
-  if(!reps) {
-    emptyFields.push('reps')
-  }
   if(emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
   }
@@ -50,7 +47,7 @@ const createRoom = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const room = await Room.create({title, load, reps, user_id})
+    const room = await Room.create({title, load, user_id})
     res.status(200).json(room)
   } catch (error) {
     res.status(400).json({error: error.message})

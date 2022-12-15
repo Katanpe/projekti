@@ -10,7 +10,6 @@ const RoomForm = () => {
 
   const [title, setTitle] = useState('')
   const [load, setLoad] = useState('')
-  const [reps, setReps] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
@@ -22,7 +21,7 @@ const RoomForm = () => {
       return
     }
 
-    const room = {title, load, reps}
+    const room = {title, load}
 
     const response = await fetch(API_URL + '/rooms/', {
       method: 'POST',
@@ -41,7 +40,6 @@ const RoomForm = () => {
     if (response.ok) {
       setTitle('')
       setLoad('')
-      setReps('')
       setError(null)
       setEmptyFields([])
       dispatch({type: 'CREATE_ROOM', payload: json})
@@ -66,14 +64,6 @@ const RoomForm = () => {
         onChange={(e) => setLoad(e.target.value)}
         value={load}
         className={emptyFields.includes('load') ? 'error' : ''}
-      />
-
-      <label>Reps:</label>
-      <input 
-        type="number"
-        onChange={(e) => setReps(e.target.value)}
-        value={reps}
-        className={emptyFields.includes('reps') ? 'error' : ''}
       />
 
       <button>Add Room</button>
