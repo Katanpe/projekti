@@ -58,9 +58,9 @@ const RoomDetails = ({ room }) => {
         {arrayLights.map(light => 
           <>
             <div>
+              <img src={bulb} alt="lightbulb"/>
               {light}
               <label className="instructions" htmlFor={light.id}>Turn lights on/off</label>
-              <img src={bulb} alt="lightbulb"/>
             </div>
           </>
         )}
