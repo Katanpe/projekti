@@ -74,12 +74,13 @@ const RoomDetails = ({ room }) => {
       <p><strong>Number of lamps: </strong>{room.load}</p>
       <p>{formatDistanceToNow(new Date(room.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
-      <p>Turn all lights on/off: </p>
+      <label className="instructions" htmlFor="lightSwitchGlobal">Turn all lights on/off</label>
       <ToggleSwitch
           id="lightSwitchGlobal"
           checked={lightSwitch}
           onChange={onLightSwitchChange}
-        />
+      />
+      
       <div className="lamps">
         {RenderLights(room)}
       </div>
